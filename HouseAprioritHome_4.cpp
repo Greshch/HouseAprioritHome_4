@@ -11,7 +11,7 @@ int main()
     const char CEIL = '=';
     const char FLOOR = '-';
     const int SPACES = 40;
-    std::cout << "\t\tWelcome to your house\n";
+    std::cout << "\t\t\t\tWelcome to your house\n";
     std::cout << "Type it's size(4 - 23) : ";
     int size = 0;
     std::cin >> size;
@@ -38,6 +38,7 @@ int main()
     //ROOF END (Without bottom)
 
     //WALL and CEIL
+    int frontonSize = size / 5;
     int bottom = size / 2 + size / 6;
     for (int i = 0; i <= bottom; i++)
     {
@@ -46,6 +47,11 @@ int main()
             if (i == 0 && (j >= leftBotomRoof && j <= rightBotomRoof))
             {
                 std::cout << CEIL;
+            }
+            else if (i < frontonSize && (j == leftBotomRoof - 1 - i || j == rightBotomRoof + 1 + i))
+            {
+                if (j == leftBotomRoof - 1 - i) std::cout << LEFT_ROOF;
+                else std::cout << RIGHT_ROOF;
             }
             else if (i != bottom && (j == leftBotomRoof || j == rightBotomRoof))
             {
